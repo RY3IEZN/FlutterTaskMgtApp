@@ -56,6 +56,56 @@ class HomeScreen extends StatelessWidget {
           Expanded(child: Tasks())
         ],
       ),
+      bottomNavigationBar: _buildBottomNavBar(),
+      floatingActionButtonLocation:
+          FloatingActionButtonLocation.miniCenterDocked,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(
+          Icons.add,
+          size: 25,
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        backgroundColor: Colors.black,
+      ),
     );
   }
+}
+
+_buildBottomNavBar() {
+  return Container(
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.only(
+        topLeft: Radius.circular(30),
+        topRight: Radius.circular(30),
+      ),
+      boxShadow: [
+        BoxShadow(
+            color: Colors.grey.withOpacity(0.2),
+            spreadRadius: 5,
+            blurRadius: 10),
+      ],
+    ),
+    child: ClipRRect(
+      borderRadius: BorderRadius.only(
+        topLeft: Radius.circular(20),
+        topRight: Radius.circular(20),
+      ),
+      child: BottomNavigationBar(
+        backgroundColor: Colors.white,
+        showUnselectedLabels: false,
+        items: [
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home_rounded,
+                size: 25,
+              ),
+              label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+        ],
+      ),
+    ),
+  );
 }
